@@ -1,0 +1,12 @@
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/entity/BaseEntity.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/event/publisher/DomainEventPublisher.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/exception/DomainException.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/OrderStatus.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/BaseId.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/RestaurantId.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/Money.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/OrderId.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/event/DomainEvent.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/entity/AggregateRoot.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/CustomerId.java
+/home/riparrag/dev/springwks/food-ordering-system/common/common-domain/src/main/java/com/food/ordering/system/domain/valueobject/ProductId.java
