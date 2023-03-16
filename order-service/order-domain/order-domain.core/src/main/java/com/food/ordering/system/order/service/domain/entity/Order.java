@@ -1,6 +1,7 @@
 package com.food.ordering.system.order.service.domain.entity;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.food.ordering.system.domain.entity.AggregateRoot;
 import com.food.ordering.system.domain.valueobject.CustomerId;
@@ -87,7 +88,49 @@ public class Order extends AggregateRoot<OrderId> {
 			throw new OrderDomainException("order item price is not valid");
 		}
 	}
+	
+	public void pay() {
+		if (!OrderStatus.PENDING.equals(orderStatus)) {
+			throw new OrderDomainException("Order must be in pending state to pay");
+		}
+		orderStatus = OrderStatus.PAID;
+	}
+	
+	public void approve() {
+		if (!OrderStatus.PAID.equals(orderStatus)) {
+			throw new OrderDomainException("Order must be paid for approval");
+		}
+		orderStatus = OrderStatus.APPROVED;
+	}
 
+	public void initCancel(List<String> failureMessages) {
+		if (!OrderStatus.PAID.equals(orderStatus)) {
+			throw new OrderDomainException("Order must be paid for cancelling");
+		}
+		orderStatus = OrderStatus.CANCELLING;
+		this.updateFailureMessage( failureMessages );
+	}
+
+	public void cancel(List<String> failureMessages) {
+		if (!(OrderStatus.CANCELLING.equals(orderStatus) || OrderStatus.PENDING.equals(orderStatus))) {
+			throw new OrderDomainException("Order must be cancelling or pending por cancel");
+		}
+		orderStatus = OrderStatus.CANCELLED;
+		this.updateFailureMessage( failureMessages );
+	}
+
+	private void updateFailureMessage(List<String> failureMessages) {
+		if (this.failureMessage == null) {
+			this.failureMessage = failureMessages;
+		}
+		else {
+			this.failureMessage.addAll(
+				failureMessages.stream().filter( fm -> !fm.isEmpty() && !fm.isBlank() )
+							   .collect(Collectors.toList())
+			);
+		}
+	}
+	
 //GETTERS -----------------------------------------------------------------------------
 	public CustomerId getCustomerId() {
 		return customerId;
