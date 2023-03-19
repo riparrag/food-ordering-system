@@ -3,10 +3,7 @@ package com.food.ordering.system.order.service.domain.entity;
 import java.util.List;
 
 import com.food.ordering.system.domain.entity.AggregateRoot;
-import com.food.ordering.system.domain.entity.BaseEntity;
-import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.domain.valueobject.RestaurantId;
-import com.food.ordering.system.order.service.domain.valueobject.ProductId;
 
 public class Restaurant extends AggregateRoot<RestaurantId> {
 
@@ -27,7 +24,7 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
 		return isActive;
 	}
 
-	public Builder builder() {
+	public static Builder builder() {
 		return new Builder();
 	}
 	
@@ -38,7 +35,11 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
 		
 		private Builder() {}
 		
-		public Builder isActive(RestaurantId restaurantId) {
+		public Restaurant build() {
+			return new Restaurant(this);
+		}
+		
+		public Builder restaurantId(RestaurantId restaurantId) {
 			this.restaurantId = restaurantId;
 			return this;
 		}
@@ -48,10 +49,9 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
 			return this;
 		}
 		
-		public Builder isActive(boolean isActive) {
+		public Builder active(boolean isActive) {
 			this.isActive = isActive;
 			return this;
 		}
 	}
-	
 }

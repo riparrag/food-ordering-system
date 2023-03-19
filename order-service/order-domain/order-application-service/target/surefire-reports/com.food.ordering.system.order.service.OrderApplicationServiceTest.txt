@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.food.ordering.system.order.service.OrderApplicationServiceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 3.393 s <<< FAILURE! - in com.food.ordering.system.order.service.OrderApplicationServiceTest
+testCreateOrderWithWrongTotalPrice  Time elapsed: 0.122 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Total price: 250.00 is not equal to Order items total: 200.00!> but was: <Total price: 250.00 is not equal to toal price items: 200.00>
+	at com.food.ordering.system.order.service.OrderApplicationServiceTest.testCreateOrderWithWrongTotalPrice(OrderApplicationServiceTest.java:171)
+
+testCreateOrder  Time elapsed: 0.011 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Order created successfully> but was: <Order Created Successfully!>
+	at com.food.ordering.system.order.service.OrderApplicationServiceTest.testCreateOrder(OrderApplicationServiceTest.java:163)
+
+testCreateOrderWithWrongProductPrice  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Order item price: 60.00 is not valid for product d215b5f8-0249-4dc5-89a3-51fd148cfb48> but was: <order item price is not valid>
+	at com.food.ordering.system.order.service.OrderApplicationServiceTest.testCreateOrderWithWrongProductPrice(OrderApplicationServiceTest.java:178)
+
